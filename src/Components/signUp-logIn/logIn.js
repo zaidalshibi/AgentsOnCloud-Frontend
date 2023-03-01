@@ -79,6 +79,7 @@ const Login = () => {
         localStorage.setItem( 'token', res.data.token );
         localStorage.setItem( 'username', res.data.username );
         localStorage.setItem( 'id', res.data.id );
+        window.location.replace( '/' );
       } ).catch( ( err ) => {
         setError( true );
         console.log( err );

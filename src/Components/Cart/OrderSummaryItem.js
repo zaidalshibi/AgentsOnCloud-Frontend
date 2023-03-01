@@ -18,6 +18,21 @@ const title = {
 
 
 export default function OrderSummaryItem () {
+    const cart = JSON.parse(localStorage.getItem("cart"));
+    const handleTotal = () => {
+        let total = 0;
+        cart.map((item) => {
+            total += item.price * item.quantity;
+        });
+        return total;
+    };
+    const handleQuantity = () => {
+        let quantity = 0;
+        cart.map((item) => {
+            quantity += item.quantity;
+        });
+        return quantity;
+    };
 
     return (
         <Card sx={root} elevation={15}>
@@ -54,14 +69,14 @@ export default function OrderSummaryItem () {
                     </Grid>
                     <Grid item xs={1} sm={1} md={1} lg={1}>
                         <Typography variant="h6" component="div">
-                            €0
+                            €{handleTotal()}
                         </Typography>
                     </Grid>
                 </Grid>
             </CardContent>
             <CardActions>
                 <Button size="large" color="secondary">
-                    BUY NOW ({1})
+                    BUY NOW ({handleQuantity()})
                 </Button>
             </CardActions>
         </Card>

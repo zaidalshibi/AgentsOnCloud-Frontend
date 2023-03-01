@@ -4,7 +4,7 @@ import Footer from './Components/MainComponents/Footer';
 import './App.css';
 import Slider from './Components/MainComponents/Slider';
 import NewsLetter from './Components/MainComponents/NewsLetter';
-import Products from './Components/MainComponents/Products';
+import Products from './Components/Products/Products';
 
 function App () {
   return (

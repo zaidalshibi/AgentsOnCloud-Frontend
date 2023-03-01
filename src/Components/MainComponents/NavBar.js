@@ -34,13 +34,14 @@ const right = {
 const menuItem = {
     cursor: 'pointer',
     mx: '15px',
-    fontSize: { xs: '12px', md: '14px' }
+    fontSize: { xs: '12px', md: '14px' },
 };
 const Navbar = () => {
     const [ user, setUser ] = React.useState( false );
     const handleLogOut = () => {
         localStorage.clear();
         setUser( false );
+        window.location.reload();
     };
     useEffect( () => {
         const user = localStorage.getItem( 'token' );
@@ -57,9 +58,14 @@ const Navbar = () => {
                 <Box sx={right}>
                     {
                         user ?
+                            <>
+                            <Box sx={menuItem}>
+                                <Link to="/addproduct" style={{ textDecoration: 'none', color: 'black' }}><Typography sx={{}}>Add new Product</Typography></Link>
+                            </Box>
                             <Box sx={menuItem}>
                                 <Typography onClick={handleLogOut}>Log Out</Typography>
                             </Box>
+                            </>
                             :
                             <>
                                 <Box sx={menuItem}>

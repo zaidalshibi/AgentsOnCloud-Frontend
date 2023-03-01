@@ -8,6 +8,7 @@ import Navbar from "../MainComponents/NavBar";
 import Footer from "../MainComponents/Footer";
 
 export default function ShoppingCart () {
+    const cart = JSON.parse(localStorage.getItem("cart"));
     return (
         <React.Fragment>
             <Navbar />
@@ -17,7 +18,11 @@ export default function ShoppingCart () {
                     <Grid item xs={12} sm={6} md={7} lg={7}>
                         <Grid container>
                             <Grid item xs>
-                                <ShoppingCartItem />
+                                {cart ? cart.map((item) => (
+                                <ShoppingCartItem key={item.id} item={item}/>
+                                ))
+                                : <h1>Cart is empty</h1>
+                                }
                             </Grid>
                         </Grid>
                     </Grid>

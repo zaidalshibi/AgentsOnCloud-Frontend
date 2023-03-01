@@ -79,6 +79,7 @@ const SignUp = () => {
                         localStorage.setItem( 'token', res.data.token );
                         localStorage.setItem( 'id', res.data.id );
                         localStorage.setItem( 'username', res.data.username );
+                        window.location.replace( '/' );
                         setError( false );
                     } ).catch( err => {
                         console.log( err );
